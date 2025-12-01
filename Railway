@@ -1,0 +1,35 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+// Linked list node for passenger details
+struct Passenger {
+    int seatNo;
+    char name[50];
+    int age;
+    char gender;
+    Passenger* next;
+};
+
+// Function prototypes
+void bookTicket(int*, int, Passenger*&);
+void cancelTicket(int*, int, Passenger*&);
+void viewTrainStatus(int*, int);
+void viewPassengerList(Passenger*);
+void freeMemory(Passenger*&);
+
+// Main Function
+int main() {
+    int n = 30;    // total seats
+    int* seats = new int[n]; // dynamic array with malloc/free logic replaced by new/delete
+
+    for(int i = 0; i < n; i++)
+        seats[i] = 0;   // 0 = available
+
+    Passenger* head = NULL;
+    int choice;
+
+    do {
+        cout << "\n===== Railway Reservation System =====\n";
+        cout << "1. Book Ticket\n";
+        cout
